@@ -12,7 +12,7 @@ describe('App Component', () => {
     render(<App />)
 
     // Log the DOM tree for debugging
-    screen.debug()
+    // screen.debug()
 
     // Find heading by its text content
     // const heading = screen.getByText('React Testing Library')
@@ -38,5 +38,19 @@ describe('App Component', () => {
   test('testing without dom', () => {
     const result = 90
     expect(result).toBe(90)
+  })
+})
+
+describe('Challenge-1: Test paragraph with a particular text', () => {
+  test('Check if the paragraph is in the Component', () => {
+    // 1. Render the Component on the JSDOM
+    render(<App />)
+
+    // 2. Perform DOM Querying
+    const para = screen.getByText(/work together to provide/i)
+
+    // 3. Assertion:
+
+    expect(para).toBeInTheDocument()
   })
 })
