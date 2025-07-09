@@ -27,3 +27,7 @@ test('this test will also pass', () => {
   const sum = 2 + 3
   console.log(sum)
 })
+
+test('this test will forcefully fail', () => {
+  throw new Error('forcefully thrown an error')
+})
