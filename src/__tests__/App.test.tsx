@@ -3,31 +3,40 @@ import { render, screen } from '@testing-library/react'
 import { test, expect } from 'vitest'
 import App from '../App'
 
-// Test if heading renders correctly
-test('should render heading with correct text', () => {
-  // Render the App component
-  render(<App />)
+/** --- To group related tests we use describe --- */
 
-  // Log the DOM tree for debugging
-  screen.debug()
+describe('App Component', () => {
+  // Test if heading renders correctly
+  test('should render heading with correct text', () => {
+    // Render the App component
+    render(<App />)
 
-  // Find heading by its text content
-  // const heading = screen.getByText('React Testing Library')
+    // Log the DOM tree for debugging
+    screen.debug()
 
-  // Verify heading exists in document
-  expect(screen.getByText('React Testing Library')).toBeInTheDocument()
-})
+    // Find heading by its text content
+    // const heading = screen.getByText('React Testing Library')
 
-/** No Assertion --- tests will always pass */
-test('empty test', () => {
-  // Empty test will always pass, because we have no assertion to validate failure
-})
+    // Verify heading exists in document
+    expect(screen.getByText('React Testing Library')).toBeInTheDocument()
+  })
 
-test('this test will also pass', () => {
-  const sum = 2 + 3
-  console.log(sum)
-})
+  /** No Assertion --- tests will always pass */
+  test('empty test', () => {
+    // Empty test will always pass, because we have no assertion to validate failure
+  })
 
-test('this test will forcefully fail', () => {
-  throw new Error('forcefully thrown an error')
+  test('this test will also pass', () => {
+    const sum = 2 + 3
+    console.log(sum)
+  })
+
+  test('this test will forcefully fail', () => {
+    // throw new Error('forcefully thrown an error')
+  })
+
+  test('testing without dom', () => {
+    const result = 90
+    expect(result).toBe(90)
+  })
 })
