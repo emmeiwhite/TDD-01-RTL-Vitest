@@ -13,6 +13,11 @@ const Sandbox = () => {
       clearTimeout(timer)
     }
   }, [])
+
+  useEffect(() => {
+    setShowError(true)
+  }, [])
+
   return (
     <div>
       <h1>React Testing Library Examples</h1>
