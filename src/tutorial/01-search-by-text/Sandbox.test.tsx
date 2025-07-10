@@ -32,10 +32,16 @@ describe('01 Search By Text', () => {
 
   /** Demonstrate different queryMethods and matchers */
 
-  test('demonstrate various queryMethods and matchers', () => {
+  test('demonstrate various queryMethods and matchers',async () => {
     render(<Sandbox />)
 
     const items = screen.getAllByText('Item 1')
     expect(items).toHaveLength(4)
+
+    /** Async Text loaded after some time  */
+
+    const asyncMessage = await screen.findByText('Async Message')
+
+    expect(asyncMessage).toBeInTheDocument()
   })
 })
