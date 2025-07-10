@@ -46,4 +46,13 @@ describe('03. Search By Role', () => {
     //   6. conditional render of button, initally hidden, so we use queryByRole() in this case
     expect(screen.queryByRole('button', { name: 'Error' })).not.toBeInTheDocument()
   })
+
+  test('async button', async () => {
+    render(<Sandbox />)
+
+    //   7. async render of button, initally hidden, so we use findByRole() in this case
+
+    const asyncBtn = await screen.queryByRole('button', { name: /async button/i })
+    expect(asyncBtn).not.toBeInTheDocument()
+  })
 })
