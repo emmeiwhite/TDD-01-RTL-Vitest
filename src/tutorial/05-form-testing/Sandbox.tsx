@@ -31,15 +31,41 @@ const Sandbox = () => {
   }
 
   /** handleSubmit(): 2 form Submit as before */
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
+
+    /** The validator package is a powerful tool to validate string-based data. 
+        Popular methods:
+
+        validator.isEmail(email)
+
+        validator.isStrongPassword(password)
+
+        validator.isLength(str, { min: 8 })
+
+        validator.isAlphanumeric(str)
+
+        validator.isMobilePhone(str, 'en-IN')
+    */
+
+    if (!validator.isEmail(signupInputs.email)) {
+      return setError('Invalid Email')
+    }
+
+    if (validator.isLength(signupInputs.password)) {
+      return setError('Password must be at least 5 characters')
+    }
+
+    if (signupInputs.password !== signupInputs.confirmPassword) {
+      return setError('Passwords do not match')
+    }
+
+    setSignupInputs(defaultState)
   }
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-12 ">
       {/* Form */}
-      <form
-        className="space-y-4"
-        onSubmit={handleSubmit}>
+      <form className="space-y-4">
         {/* 1. Email */}
         <div className="">
           <label
@@ -94,7 +120,12 @@ const Sandbox = () => {
         {error && <p className="text-red-500 text-sm">{error}</p>}
 
         {/* Submit Button */}
-        <button className={buttonStyles}>Submit</button>
+        <button
+          className={buttonStyles}
+          onClick={handleSubmit}
+          type="submit">
+          Submit
+        </button>
       </form>
     </div>
   )
