@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import validator from 'validator'
 
+//✅ validator is perfect for simple form-level validation
+
 // let's right away set some styles for the labels, inputs & button
 
 const labelStyles = 'block text-gray-700 font-medium mb-2'
@@ -73,7 +75,7 @@ const Sandbox = () => {
         </div>
 
         {/* Confirm Password */}
-        <div className="confirm-password">
+        <div className="">
           <label
             htmlFor=""
             className={labelStyles}>
@@ -84,8 +86,8 @@ const Sandbox = () => {
             value={signupInputs.confirmPassword}
             className={inputStyles}
             type="text"
-            name="confirm-password"
-            id="confirm-password"
+            name="confirmPassword"
+            id="confirmPassword"
           />
         </div>
 
