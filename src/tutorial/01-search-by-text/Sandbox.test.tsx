@@ -29,4 +29,13 @@ describe('01 Search By Text', () => {
 
     expect(errorMessage).not.toBeInTheDocument()
   })
+
+  /** Demonstrate different queryMethods and matchers */
+
+  test('demonstrate various queryMethods and matchers', () => {
+    render(<Sandbox />)
+
+    const items = screen.getAllByText('Item 1')
+    expect(items).toHaveLength(4)
+  })
 })
