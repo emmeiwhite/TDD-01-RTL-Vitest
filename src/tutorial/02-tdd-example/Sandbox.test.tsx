@@ -3,8 +3,11 @@
 import { screen, render } from '@testing-library/react'
 import Sandbox from './Sandbox'
 
-test('02. TDD in action', () => {
-  render(<Sandbox />)
+describe('02. TDD in action', () => {
+  test('should render heading', () => {
+    render(<Sandbox />)
 
-  screen.getByText(/testing/i)
+    const heading = screen.getByText(/testing/i)
+    expect(heading).toBeInTheDocument()
+  })
 })
