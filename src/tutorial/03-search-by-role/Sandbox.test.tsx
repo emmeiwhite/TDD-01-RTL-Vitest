@@ -39,4 +39,11 @@ describe('03. Search By Role', () => {
     expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument()
   })
+
+  test('conditional button', () => {
+    render(<Sandbox />)
+
+    //   6. conditional render of button, initally hidden, so we use queryByRole() in this case
+    expect(screen.queryByRole('button', { name: 'Error' })).not.toBeInTheDocument()
+  })
 })
