@@ -19,16 +19,25 @@ const Sandbox = () => {
 
   /** handleChange(): 1 handler to handle them all */
 
-  const handleChange = e => {}
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target
+
+    setSignupInputs({
+      ...signupInputs,
+      [id]: value
+    })
+  }
 
   /** handleSubmit(): 2 form Submit as before */
-  const handleSubmit = e => {
-    e.preventDefaut()
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
   }
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-12 ">
       {/* Form */}
-      <form className="space-y-4">
+      <form
+        className="space-y-4"
+        onSubmit={handleSubmit}>
         {/* 1. Email */}
         <div className="">
           <label
@@ -37,6 +46,8 @@ const Sandbox = () => {
             Email Adress
           </label>
           <input
+            onChange={handleChange}
+            value={signupInputs.email}
             className={inputStyles}
             type="text"
             name="email"
@@ -52,6 +63,8 @@ const Sandbox = () => {
             Password
           </label>
           <input
+            onChange={handleChange}
+            value={signupInputs.password}
             className={inputStyles}
             type="text"
             name="password"
@@ -67,12 +80,16 @@ const Sandbox = () => {
             Confirm Password
           </label>
           <input
+            onChange={handleChange}
+            value={signupInputs.confirmPassword}
             className={inputStyles}
             type="text"
             name="confirm-password"
             id="confirm-password"
           />
         </div>
+
+        {error && <p className="text-red-500 text-sm">{error}</p>}
 
         {/* Submit Button */}
         <button className={buttonStyles}>Submit</button>
