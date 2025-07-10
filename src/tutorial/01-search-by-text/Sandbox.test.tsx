@@ -19,4 +19,14 @@ describe('01 Search By Text', () => {
 
     expect(phoneText).toBeInTheDocument()
   })
+
+  /** queryByText: When the element is not intially rendered but conditionally rendered */
+
+  test('test conditional element with queryByText()', () => {
+    render(<Sandbox />)
+
+    const errorMessage = screen.queryByText('Error Message')
+
+    expect(errorMessage).not.toBeInTheDocument()
+  })
 })
