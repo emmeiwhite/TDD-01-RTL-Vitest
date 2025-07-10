@@ -52,7 +52,7 @@ const Sandbox = () => {
       return setError('Invalid Email')
     }
 
-    if (validator.isLength(signupInputs.password)) {
+    if (!validator.isLength(signupInputs.password, { min: 5 })) {
       return setError('Password must be at least 5 characters')
     }
 
@@ -60,6 +60,8 @@ const Sandbox = () => {
       return setError('Passwords do not match')
     }
 
+    // Everything is valid
+    setError('')
     setSignupInputs(defaultState)
   }
   return (
@@ -94,7 +96,7 @@ const Sandbox = () => {
             onChange={handleChange}
             value={signupInputs.password}
             className={inputStyles}
-            type="text"
+            type="password"
             name="password"
             id="password"
           />
@@ -111,7 +113,7 @@ const Sandbox = () => {
             onChange={handleChange}
             value={signupInputs.confirmPassword}
             className={inputStyles}
-            type="text"
+            type="password"
             name="confirmPassword"
             id="confirmPassword"
           />
