@@ -26,18 +26,56 @@ const Sandbox = () => {
     e.preventDefaut()
   }
   return (
-    <div className="max-w-md mx-auto px-6 bg-white rounded-lg shadow-md mt-12 ">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-12 ">
       {/* Form */}
       <form className="space-y-4">
+        {/* 1. Email */}
         <div className="">
-          <label htmlFor="">Email Adress</label>
+          <label
+            htmlFor="email"
+            className={labelStyles}>
+            Email Adress
+          </label>
+          <input
+            className={inputStyles}
+            type="text"
+            name="email"
+            id="email"
+          />
         </div>
+
+        {/* Password */}
         <div className="">
-          <label htmlFor="">Password</label>
+          <label
+            htmlFor="password"
+            className={labelStyles}>
+            Password
+          </label>
+          <input
+            className={inputStyles}
+            type="text"
+            name="password"
+            id="password"
+          />
         </div>
-        <div className="">
-          <label htmlFor="">Confirm Password</label>
+
+        {/* Confirm Password */}
+        <div className="confirm-password">
+          <label
+            htmlFor=""
+            className={labelStyles}>
+            Confirm Password
+          </label>
+          <input
+            className={inputStyles}
+            type="text"
+            name="confirm-password"
+            id="confirm-password"
+          />
         </div>
+
+        {/* Submit Button */}
+        <button className={buttonStyles}>Submit</button>
       </form>
     </div>
   )
