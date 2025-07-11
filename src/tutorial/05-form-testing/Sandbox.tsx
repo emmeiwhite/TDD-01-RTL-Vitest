@@ -73,7 +73,7 @@ const Sandbox = () => {
           <label
             htmlFor="email"
             className={labelStyles}>
-            Email Adress
+            Email Address
           </label>
           <input
             onChange={handleChange}
@@ -105,7 +105,7 @@ const Sandbox = () => {
         {/* Confirm Password */}
         <div className="">
           <label
-            htmlFor=""
+            htmlFor="confirmPassword"
             className={labelStyles}>
             Confirm Password
           </label>
