@@ -47,11 +47,19 @@ import Sandbox from './Sandbox'
 // })
 
 describe('01-search-by-text', () => {
-  test('Query Elements with Text', () => {
+  test('Test heading text', () => {
     render(<Sandbox />)
 
     const headingText = screen.getByText(/Testing Library/i)
 
     expect(headingText).toBeInTheDocument()
+  })
+
+  test('Test whether paragraph renders correctly', () => {
+    render(<Sandbox />)
+
+    const paragraphText = screen.getByText(/\d{3}-\d{3}-\d{4}/)
+
+    expect(paragraphText).toBeInTheDocument()
   })
 })
