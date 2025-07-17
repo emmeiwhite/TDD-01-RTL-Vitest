@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react'
+import { screen, render, logRoles } from '@testing-library/react'
 import { test, expect, describe } from 'vitest'
 import Sandbox from './Sandbox'
 
@@ -47,6 +47,7 @@ import Sandbox from './Sandbox'
 // })
 
 describe('01-search-by-text', () => {
+  /** 1. getByText(): Element should exist on initial render. Throws error if element is not present */
   test('Test heading text', () => {
     render(<Sandbox />)
 
@@ -58,8 +59,20 @@ describe('01-search-by-text', () => {
   test('Test whether paragraph renders correctly', () => {
     render(<Sandbox />)
 
+    screen.debug() // logs the current state of the virtual-dom to the console
+
     const paragraphText = screen.getByText(/\d{3}-\d{3}-\d{4}/)
 
     expect(paragraphText).toBeInTheDocument()
+  })
+
+  /**  2) queryByText(): For conditional renders, where the element is initially not renderd but after a state change renders.  */
+
+  test('Test conditional rendering of para', () => {
+    render(<Sandbox />)
+
+    const paraText = screen.queryByText('/error message/i')
+
+    expect(paraText).not.toBeInTheDocument()
   })
 })
