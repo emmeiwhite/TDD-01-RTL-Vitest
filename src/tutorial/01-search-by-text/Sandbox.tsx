@@ -20,9 +20,11 @@ const Sandbox = () => {
 
   return (
     <div>
+      {/* getByText() */}
       <h1>React Testing Library Examples</h1>
       <p>You can search me with regular expression: 123-456-7890</p>
 
+      {/* queryByText() */}
       {showError && <p>Error Message</p>}
 
       <ul>
@@ -32,6 +34,7 @@ const Sandbox = () => {
         <li> Item 1</li>
       </ul>
 
+      {/* findByText() */}
       {showMessage && <p>Async Message</p>}
     </div>
   )
