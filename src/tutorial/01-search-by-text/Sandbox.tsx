@@ -5,6 +5,7 @@ const Sandbox = () => {
   const [showError, setShowError] = useState(false)
 
   useEffect(() => {
+    // simulate the API call with a delay of 500ms
     const timer = setTimeout(() => {
       setShowMessage(true)
     }, 500)

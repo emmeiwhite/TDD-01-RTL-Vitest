@@ -75,4 +75,14 @@ describe('01-search-by-text', () => {
 
     expect(paraText).not.toBeInTheDocument()
   })
+
+  /** 3) Asynchronously rendered elements */
+
+  test('test asynchronously renderd text', async () => {
+    render(<Sandbox />)
+
+    const asyncText = await screen.findByText(/async message/i)
+
+    expect(asyncText).toBeInTheDocument()
+  })
 })
